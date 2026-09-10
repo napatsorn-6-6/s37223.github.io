@@ -3,52 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - นภัสสร</title>
+    <title>About Me - นภัสสร แก้วพรวน</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Kanit', sans-serif; }
-        body { background-color: #F8F9FA; color: #333; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 40px 20px; }
-        .card { background: white; border-radius: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); max-width: 650px; width: 100%; padding: 40px; border: 2px solid #FFE082; text-align: center; }
-        h1 { color: #37474F; font-size: 2.2rem; margin-bottom: 25px; border-bottom: 2px solid #FFC107; padding-bottom: 15px; }
-        h2 { color: #263238; font-size: 1.25rem; margin: 25px 0 15px 0; text-align: left; border-left: 4px solid #FFC107; padding-left: 10px; }
-        .info-list { text-align: left; display: flex; flex-direction: column; gap: 10px; font-size: 1rem; }
-        .info-item { background: #FFFDE7; padding: 12px 20px; border-radius: 12px; border: 1px solid #FFF59D; display: flex; justify-content: space-between; flex-wrap: wrap; }
-        .info-label { color: #F57F17; font-weight: 600; }
-        .info-value { color: #37474F; }
-        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 35px; }
-        .skill-tag { background: #ECEFF1; border: 1px solid #CFD8DC; color: #37474F; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 500; }
-        .btn-group { display: flex; justify-content: space-between; gap: 15px; }
+        body { background-color: #F8F9FA; color: #333; padding: 40px 20px; min-height: 100vh; display: flex; justify-content: center; align-items: center; }
+        
+        .container { max-width: 950px; width: 100%; margin: 0 auto; }
+        
+        .card { background: white; border-radius: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); padding: 40px; border: 2px solid #FFE082; }
+        
+        h1 { color: #37474F; font-size: 2rem; text-align: center; margin-bottom: 30px; border-bottom: 3px solid #FFC107; display: inline-block; padding-bottom: 8px; }
+        .title-container { text-align: center; margin-bottom: 10px; }
+
+        /* เลย์เอาต์แบ่ง 2 คอลัมน์ (ซ้าย-ขวา) */
+        .about-grid { display: grid; grid-template-columns: 320px 1fr; gap: 30px; margin-bottom: 30px; }
+        
+        /* ฝั่งซ้าย: รูปภาพ + ประวัติส่วนตัวด้านล่าง */
+        .left-col { display: flex; flex-direction: column; gap: 20px; }
+        
+        .profile-frame {
+            width: 100%;
+            max-width: 220px;
+            aspect-ratio: 3 / 4;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 3px solid #FFC107;
+            box-shadow: 0 6px 18px rgba(255, 193, 7, 0.25);
+            background-color: #FFFDE7;
+        }
+        .profile-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        
+        .info-card { background: #FFFDE7; border-radius: 20px; padding: 20px; border: 1px solid #FFE082; }
+        .info-card h2 { color: #F57F17; font-size: 1.15rem; margin-bottom: 15px; border-bottom: 2px solid #FFC107; padding-bottom: 5px; }
+        .info-list { display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem; }
+        .info-item { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 5px; line-height: 1.5; }
+        .info-label { color: #F57F17; font-weight: 600; min-width: 90px; }
+        .info-value { color: #37474F; flex: 1; text-align: right; }
+
+        /* ฝั่งขวา: ความถนัดและทักษะ */
+        .right-col { background: #FFFFFF; border-radius: 20px; padding: 25px; border: 1px solid #FFE082; box-shadow: inset 0 0 10px rgba(255,193,7,0.05); }
+        .right-col h2 { color: #263238; font-size: 1.25rem; margin-bottom: 20px; border-left: 4px solid #FFC107; padding-left: 12px; }
+        
+        /* Skill Bars */
+        .skill-item { margin-bottom: 18px; }
+        .skill-name { font-size: 0.95rem; color: #37474F; font-weight: 600; margin-bottom: 6px; display: flex; justify-content: space-between; }
+        .skill-bar { width: 100%; height: 10px; background-color: #ECEFF1; border-radius: 10px; overflow: hidden; border: 1px solid #CFD8DC; }
+        .skill-fill { height: 100%; background: #FFC107; border-radius: 10px; }
+
+        /* Skill Tags ด้านล่าง */
+        .tags-title { color: #546E7A; font-size: 1rem; font-weight: 600; margin: 25px 0 12px 0; }
+        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-tag { background: #FFF8E1; border: 1px solid #FFE082; color: #F57F17; padding: 8px 14px; border-radius: 20px; font-size: 0.88rem; font-weight: 500; }
+
+        /* ปุ่มนำทางด้านล่าง */
+        .btn-group { display: flex; justify-content: space-between; gap: 15px; margin-top: 10px; }
         .btn { flex: 1; padding: 12px 20px; font-size: 1rem; font-weight: 600; border-radius: 50px; text-decoration: none; transition: all 0.3s ease; text-align: center; }
-        .btn-secondary { color: #546E7A; background-color: #ECEFF1; }
+        .btn-secondary { color: #546E7A; background-color: #ECEFF1; border: 1px solid #CFD8DC; }
         .btn-secondary:hover { background-color: #CFD8DC; }
         .btn-primary { color: #212121; background-color: #FFC107; box-shadow: 0 4px 12px rgba(255,193,7,0.3); }
         .btn-primary:hover { background-color: #FFB300; transform: translateY(-2px); }
+
+        /* รองรับมือถือและหน้าจอขนาดเล็ก */
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .info-value { text-align: left; }
+            .card { padding: 25px 20px; }
+        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>ABOUT ME (แนะนำตัวเอง)</h1>
-        <div class="info-list">
-            <div class="info-item"><span class="info-label">ชื่อ-นามสกุล:</span><span class="info-value">นางสาว นภัสสร แก้วพรวน (จีจ้า)</span></div>
-            <div class="info-item"><span class="info-label">อายุ / วันเกิด:</span><span class="info-value">18 ปี / 11 กุมภาพันธ์ 2551</span></div>
-            <div class="info-item"><span class="info-label">เชื้อชาติ / สัญชาติ / ศาสนา:</span><span class="info-value">ไทย / ไทย / พุทธ</span></div>
-            <div class="info-item"><span class="info-label">สถานศึกษา:</span><span class="info-value">โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</span></div>
-            <div class="info-item"><span class="info-label">เป้าหมายการศึกษา:</span><span class="info-value">คณะสาธารณสุขศาสตร์ มหาวิทยาลัยบูรพา</span></div>
-            <div class="info-item"><span class="info-label">เบอร์โทรติดต่อ:</span><span class="info-value">0676378920</span></div>
-        </div>
 
-        <h2>ความถนัดและทักษะพิเศษ (Skills & Strengths)</h2>
-        <div class="skills-container">
-            <span class="skill-tag">🏥 การลงทะเบียนและบริหารจัดการงานประสานงาน</span>
-            <span class="skill-tag">💻 ทักษะเทคโนโลยีและสารสนเทศดิจิทัล (Smart Digital Life)</span>
-            <span class="skill-tag">🤝 งานบริการสังคมและค่ายคุณธรรมจริยธรรม</span>
-            <span class="skill-tag">👥 การทำงานร่วมกับผู้อื่นและการสื่อสาร</span>
-        </div>
+    <div class="container">
+        <div class="card">
+            <div class="title-container">
+                <h1>ABOUT ME (แนะนำตัวเอง)</h1>
+            </div>
 
-        <div class="btn-group">
-            <a href="intro.html" class="btn btn-secondary">← คำนำ</a>
-            <a href="portfolio.html" class="btn btn-primary">ดูผลงานเกียรติบัตร →</a>
+            <div class="about-grid">
+                <!-- ฝั่งซ้าย: รูปภาพ + ประวัติส่วนตัวด้านล่าง -->
+                <div class="left-col">
+                    <div class="profile-frame">
+                        <img src="Npface.jpg" alt="นภัสสร แก้วพรวน" class="profile-img">
+                    </div>
+
+                    <div class="info-card">
+                        <h2>👤 ประวัติส่วนตัว</h2>
+                        <div class="info-list">
+                            <div class="info-item"><span class="info-label">ชื่อ-สกุล:</span><span class="info-value">น.ส. นภัสสร แก้วพรวน</span></div>
+                            <div class="info-item"><span class="info-label">ชื่อเล่น:</span><span class="info-value">จีจ้า</span></div>
+                            <div class="info-item"><span class="info-label">อายุ:</span><span class="info-value">18 ปี</span></div>
+                            <div class="info-item"><span class="info-label">วันเกิด:</span><span class="info-value">11 กุมภาพันธ์ 2551</span></div>
+                            <div class="info-item"><span class="info-label">สัญชาติ/ศาสนา:</span><span class="info-value">ไทย / พุทธ</span></div>
+                            <div class="info-item"><span class="info-label">สถานศึกษา:</span><span class="info-value">รร.บ้านบึง "อุตสาหกรรมนุเคราะห์"</span></div>
+                            <div class="info-item"><span class="info-label">เป้าหมาย:</span><span class="info-value">คณะสาธารณสุขศาสตร์ ม.บูรพา</span></div>
+                            <div class="info-item"><span class="info-label">เบอร์โทรศัพท์:</span><span class="info-value">067-637-8920</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ฝั่งขวา: ความถนัดและทักษะพิเศษ -->
+                <div class="right-col">
+                    <h2>⭐ ความถนัดและทักษะพิเศษ (Skills & Strengths)</h2>
+
+                    <div class="skill-item">
+                        <div class="skill-name"><span>งานบริการสาธารณสุขและจิตสาธารณะ</span><span>92%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 92%;"></div></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-name"><span>การลงทะเบียนและบริหารจัดการประสานงาน</span><span>90%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-name"><span>การสื่อสารและการทำงานร่วมกับผู้อื่น</span><span>88%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 88%;"></div></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-name"><span>ทักษะเทคโนโลยีดิจิทัล (Smart Digital Life)</span><span>85%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+                    </div>
+
+                    <div class="tags-title">📌 จุดเด่นและทักษะเพิ่มเติม:</div>
+                    <div class="skills-container">
+                        <span class="skill-tag">🏥 การลงทะเบียนและประสานงาน</span>
+                        <span class="skill-tag">💻 เทคโนโลยีสารสนเทศดิจิทัล</span>
+                        <span class="skill-tag">🤝 งานบริการสังคมและค่ายคุณธรรม</span>
+                        <span class="skill-tag">👥 ทักษะการสื่อสารระหว่างบุคคล</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ปุ่มย้อนกลับ / ถัดไป -->
+            <div class="btn-group">
+                <a href="intro.html" class="btn btn-secondary">← คำนำ</a>
+                <a href="portfolio.html" class="btn btn-primary">ดูผลงานเกียรติบัตร →</a>
+            </div>
         </div>
     </div>
+
 </body>
 </html>
