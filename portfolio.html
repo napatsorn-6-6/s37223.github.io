@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - นภัสสร แก้วพรวน</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Kanit', sans-serif; }
+        body { background-color: #F8F9FA; color: #333; padding: 40px 20px; min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .header { background: white; padding: 25px; border-radius: 20px; border: 2px solid #FFE082; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; margin-bottom: 35px; flex-wrap: wrap; gap: 15px; }
+        h1 { color: #37474F; font-size: 1.8rem; }
+        .btn-nav { padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease; }
+        .btn-back { background: #ECEFF1; color: #455A64; }
+        .btn-back:hover { background: #CFD8DC; }
+        .btn-next { background: #FFC107; color: #212121; box-shadow: 0 4px 12px rgba(255,193,7,0.3); }
+        .btn-next:hover { background: #FFB300; transform: translateY(-2px); }
+        .section-title { color: #263238; font-size: 1.4rem; margin: 10px 0 25px 0; padding-bottom: 8px; border-bottom: 3px solid #FFC107; display: inline-block; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 35px; }
+        .card { background: white; border-radius: 15px; border: 1px solid #FFE082; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(255,193,7,0.25); }
+        .card-img { width: 100%; height: 200px; object-fit: cover; background-color: #FFFDE7; }
+        .card-body { padding: 18px 20px; }
+        .card-body h3 { color: #F57F17; font-size: 1.05rem; margin-bottom: 8px; line-height: 1.4; }
+        .card-body p { color: #555; font-size: 0.88rem; line-height: 1.6; }
+        .bottom-nav { text-align: center; margin-top: 40px; }
+        .modal { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); justify-content: center; align-items: center; }
+        .modal-content { max-width: 90%; max-height: 90%; border-radius: 10px; }
+    </style>
+</head>
+<body>
 
+    <div class="container">
+        <div class="header">
+            <h1>🏆 แฟ้มสะสมผลงานและเกียรติบัตร</h1>
+            <div>
+                <a href="about.html" class="btn-nav btn-back">← ประวัติส่วนตัว</a>
+                <a href="thankyou.html" class="btn-nav btn-next">ไปยังหน้าปิดท้าย →</a>
+            </div>
+        </div>
+
+        <h2 class="section-title">ผลงาน กิจกรรม และการฝึกอบรมพัฒนาตนเอง</h2>
+        
+        <div class="grid">
+            <!-- Np4.jpg -->
+            <div class="card" onclick="openModal('Np4.jpg')">
+                <img src="Np4.jpg" alt="งานศิลปหัตถกรรมนักเรียน ครั้งที่ 73" class="card-img">
+                <div class="card-body">
+                    <h3>1. กรรมการฝ่ายลงทะเบียน งานศิลปหัตถกรรมนักเรียน ครั้งที่ 73</h3>
+                    <p>ปฏิบัติหน้าที่คณะกรรมการฝ่ายลงทะเบียน ระดับสำนักงานเขตพื้นที่การศึกษามัธยมศึกษาชลบุรี ระยอง ฝึกทักษะการบริหารจัดการข้อมูล สรุปยอด และการบริการประสานงาน</p>
+                </div>
+            </div>
+
+            <!-- Np3.jpg -->
+            <div class="card" onclick="openModal('Np3.jpg')">
+                <img src="Np3.jpg" alt="Smart and Safe Digital Life" class="card-img">
+                <div class="card-body">
+                    <h3>2. กิจกรรม SMART AND SAFE DIGITAL LIFE (ปีการศึกษา 2569)</h3>
+                    <p>เข้าร่วมการเรียนรู้และนิทรรศการด้านเทคโนโลยี ในงานสัปดาห์วิทยาศาสตร์แห่งชาติ เพื่อนำนวัตกรรมดิจิทัลมาประยุกต์ใช้ในการดำเนินชีวิตอย่างปลอดภัย</p>
+                </div>
+            </div>
+
+            <!-- Np2.jpg -->
+            <div class="card" onclick="openModal('Np2.jpg')">
+                <img src="Np2.jpg" alt="ค่ายยกระดับผลสัมฤทธิ์เทคโนโลยี" class="card-img">
+                <div class="card-body">
+                    <h3>3. ค่ายยกระดับผลสัมฤทธิ์ทางการเรียนเทคโนโลยี</h3>
+                    <p>ผ่านการฝึกอบรมเชิงปฏิบัติการเพื่อพัฒนาทักษะด้านเทคโนโลยีสารสนเทศ เสริมสร้างกระบวนการคิดวิเคราะห์อย่างเป็นระบบ ณ หอประชุมกาญจนานนท์</p>
+                </div>
+            </div>
+
+            <!-- Np6.jpg -->
+            <div class="card" onclick="openModal('Np6.jpg')">
+                <img src="Np6.jpg" alt="สัมมนาพัฒนาเทคโนโลยี" class="card-img">
+                <div class="card-body">
+                    <h3>4. สัมมนาการพัฒนาเทคโนโลยี (Technology Development)</h3>
+                    <p>เข้าร่วมสัมมนาวิชาการด้านเทคโนโลยี ณ ห้อง Fabrication Laboratory เพื่อเปิดโลกทัศน์เกี่ยวกับการใช้นวัตกรรมในการพัฒนาสังคม</p>
+                </div>
+            </div>
+
+            <!-- Np1.jpg -->
+            <div class="card" onclick="openModal('Np1.jpg')">
+                <img src="Np1.jpg" alt="ค่ายพัฒนาคุณธรรม จริยธรรม 2567" class="card-img">
+                <div class="card-body">
+                    <h3>5. ค่ายพัฒนาคุณธรรม จริยธรรมนักเรียน (ปีการศึกษา 2567)</h3>
+                    <p>เข้าร่วมการอบรมเชิงปฏิบัติการเพื่อส่งเสริมคุณธรรม จริยธรรม และจิตสาธารณะ พร้อมนำหลักธรรมมาปรับใช้ในการช่วยเหลือผู้อื่นในสังคม</p>
+                </div>
+            </div>
+
+            <!-- Np5.jpg -->
+            <div class="card" onclick="openModal('Np5.jpg')">
+                <img src="Np5.jpg" alt="ค่ายพัฒนาคุณธรรม จริยธรรม 2568" class="card-img">
+                <div class="card-body">
+                    <h3>6. ค่ายพัฒนาคุณธรรม จริยธรรมนักเรียน (ปีการศึกษา 2568)</h3>
+                    <p>เข้าร่วมกิจกรรมพัฒนาจิตใจและสร้างวินัยอย่างต่อเนื่อง ส่งเสริมการทำงานร่วมกัน ความเสียสละ และความรับผิดชอบต่อส่วนรวม</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-nav">
+            <a href="thankyou.html" class="btn-nav btn-next" style="padding: 14px 35px; font-size: 1.1rem;">ไปยังหน้าปิดท้าย →</a>
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <img id="modalImg" class="modal-content" src="" alt="Enlarged Certificate">
+    </div>
+
+    <script>
+        function openModal(imgSrc) {
+            document.getElementById('imageModal').style.display = 'flex';
+            document.getElementById('modalImg').src = imgSrc;
+        }
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
