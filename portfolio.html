@@ -7,15 +7,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Kanit', sans-serif; }
-        body { background-color: #F8F9FA; color: #333; padding: 40px 20px; min-height: 100vh; }
+        body { background-color: #FFFDE7; color: #333; padding: 40px 20px; min-height: 100vh; }
         .container { max-width: 1000px; margin: 0 auto; }
-        .header { background: white; padding: 25px; border-radius: 20px; border: 2px solid #FFE082; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; margin-bottom: 35px; flex-wrap: wrap; gap: 15px; }
-        h1 { color: #37474F; font-size: 1.8rem; }
-        .btn-nav { padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease; }
+        
+        /* ปรับ Header เรียงลำดับ: ปุ่มย้อนกลับ - หัวข้อ - ปุ่มถัดไป */
+        .header { 
+            background: white; 
+            padding: 20px 25px; 
+            border-radius: 20px; 
+            border: 2px solid #FFE082; 
+            box-shadow: 0 4px 15px rgba(255,193,7,0.15); 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 35px; 
+            gap: 15px;
+        }
+        
+        h1 { 
+            color: #37474F; 
+            font-size: 1.6rem; 
+            text-align: center;
+            flex: 1;
+        }
+        
+        .btn-nav { 
+            padding: 10px 20px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            transition: all 0.3s ease; 
+            white-space: nowrap;
+        }
         .btn-back { background: #ECEFF1; color: #455A64; }
         .btn-back:hover { background: #CFD8DC; }
         .btn-next { background: #FFC107; color: #212121; box-shadow: 0 4px 12px rgba(255,193,7,0.3); }
         .btn-next:hover { background: #FFB300; transform: translateY(-2px); }
+        
         .section-title { color: #263238; font-size: 1.4rem; margin: 10px 0 25px 0; padding-bottom: 8px; border-bottom: 3px solid #FFC107; display: inline-block; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 35px; }
         .card { background: white; border-radius: 15px; border: 1px solid #FFE082; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
@@ -24,20 +53,26 @@
         .card-body { padding: 18px 20px; }
         .card-body h3 { color: #F57F17; font-size: 1.05rem; margin-bottom: 8px; line-height: 1.4; }
         .card-body p { color: #555; font-size: 0.88rem; line-height: 1.6; }
-        .bottom-nav { text-align: center; margin-top: 40px; }
+        
         .modal { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); justify-content: center; align-items: center; }
         .modal-content { max-width: 90%; max-height: 90%; border-radius: 10px; }
+
+        @media (max-width: 768px) {
+            .header { flex-direction: column; text-align: center; }
+            h1 { order: 1; }
+            .btn-back { order: 2; width: 100%; text-align: center; }
+            .btn-next { order: 3; width: 100%; text-align: center; }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <!-- Header รูปแบบใหม่: ปุ่มย้อนกลับ - หัวข้อ - ปุ่มถัดไป -->
         <div class="header">
+            <a href="about.html" class="btn-nav btn-back">← ประวัติส่วนตัว</a>
             <h1>🏆 แฟ้มสะสมผลงานและเกียรติบัตร</h1>
-            <div>
-                <a href="about.html" class="btn-nav btn-back">← ประวัติส่วนตัว</a>
-                <a href="thankyou.html" class="btn-nav btn-next">ไปยังหน้าปิดท้าย →</a>
-            </div>
+            <a href="thankyou.html" class="btn-nav btn-next">ไปยังหน้าปิดท้าย →</a>
         </div>
 
         <h2 class="section-title">ผลงาน กิจกรรม และการฝึกอบรมพัฒนาตนเอง</h2>
@@ -97,10 +132,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="bottom-nav">
-            <a href="thankyou.html" class="btn-nav btn-next" style="padding: 14px 35px; font-size: 1.1rem;">ไปยังหน้าปิดท้าย →</a>
-        </div>
+        <!-- ลบปุ่มไปหน้าถัดไปด้านล่างออกเรียบร้อยแล้ว -->
     </div>
 
     <div id="imageModal" class="modal" onclick="closeModal()">
