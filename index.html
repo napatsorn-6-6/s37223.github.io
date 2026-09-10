@@ -1,1 +1,564 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Napatsorn Portfolio</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Kanit', sans-serif;
+    background:
+    radial-gradient(circle at top left,#ffd6e3,transparent 30%),
+    radial-gradient(circle at bottom right,#d9e7ff,transparent 30%),
+    #f7f7f7;
+    color:#222;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 8%;
+
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(0,0,0,.08);
+}
+
+.logo{
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:20px;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:#ff5c8a;
+}
+
+nav a{
+    text-decoration:none;
+    color:#333;
+    margin-left:20px;
+    font-size:15px;
+}
+
+nav a:hover{
+    color:#ff5c8a;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:120px 20px 50px;
+}
+
+.hero-box{
+    max-width:900px;
+
+    padding:70px 40px;
+
+    background:rgba(255,255,255,.65);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.8);
+
+    border-radius:40px;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.12);
+}
+
+.badge{
+    display:inline-block;
+
+    padding:8px 18px;
+
+    background:#222;
+    color:white;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-family:'Poppins',sans-serif;
+
+    font-size:clamp(45px,8vw,90px);
+
+    line-height:1;
+
+    letter-spacing:-3px;
+}
+
+.hero h1 span{
+    color:#ff5c8a;
+}
+
+.hero h2{
+    font-size:20px;
+    font-weight:400;
+
+    margin-top:25px;
+}
+
+.hero p{
+    max-width:600px;
+
+    margin:20px auto;
+
+    color:#666;
+
+    line-height:1.8;
+}
+
+.button{
+    display:inline-block;
+
+    margin-top:15px;
+
+    padding:14px 28px;
+
+    background:#ff5c8a;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:30px;
+
+    transition:.3s;
+}
+
+.button:hover{
+    transform:translateY(-4px);
+    background:#222;
+}
+
+/* SECTION */
+
+section{
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:100px 25px;
+}
+
+.section-title{
+    font-family:'Poppins',sans-serif;
+
+    font-size:40px;
+
+    margin-bottom:10px;
+}
+
+.section-sub{
+    color:#777;
+
+    margin-bottom:40px;
+}
+
+/* ABOUT */
+
+.about-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,.8);
+
+    padding:30px;
+
+    border-radius:25px;
+
+    border:1px solid rgba(0,0,0,.05);
+
+    box-shadow:0 10px 30px rgba(0,0,0,.07);
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    font-size:22px;
+
+    margin-bottom:15px;
+
+    color:#ff5c8a;
+}
+
+.card p{
+    color:#666;
+
+    line-height:1.8;
+}
+
+/* EDUCATION */
+
+.education{
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:20px;
+}
+
+/* SAFETY */
+
+.safety{
+    background:#222;
+
+    color:white;
+
+    border-radius:35px;
+
+    padding:50px;
+
+    margin-top:30px;
+}
+
+.safety h2{
+    font-family:'Poppins',sans-serif;
+
+    font-size:35px;
+}
+
+.tags{
+    margin-top:25px;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+}
+
+.tag{
+    background:#333;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    border:1px solid #555;
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+
+    padding-bottom:100px;
+}
+
+.contact-box{
+    background:#ff5c8a;
+
+    color:white;
+
+    padding:50px;
+
+    border-radius:35px;
+}
+
+footer{
+    text-align:center;
+
+    padding:30px;
+
+    background:#222;
+
+    color:#aaa;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    nav{
+        padding:15px 5%;
+    }
+
+    nav .menu{
+        display:none;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-box{
+        padding:50px 20px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<nav>
+
+<div class="logo">
+NAPATSORN<span>.</span>
+</div>
+
+<div class="menu">
+<a href="#about">ABOUT</a>
+<a href="#education">EDUCATION</a>
+<a href="#portfolio">PORTFOLIO</a>
+<a href="#contact">CONTACT</a>
+</div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<div class="hero">
+
+<div class="hero-box">
+
+<div class="badge">
+🩷 SWEET BUT SAFE 🦺
+</div>
+
+<h1>
+HELLO,<br>
+I'M <span>JIJA.</span>
+</h1>
+
+<h2>
+NAPATSORN KAEWPRUAN
+</h2>
+
+<p>
+Portfolio for Faculty of Public Health
+<br>
+Industrial Hygiene and Safety
+</p>
+
+<a href="#about" class="button">
+EXPLORE MY PORTFOLIO ✦
+</a>
+
+</div>
+
+</div>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2 class="section-title">
+ABOUT ME ✦
+</h2>
+
+<p class="section-sub">
+รู้จักฉันให้มากขึ้น
+</p>
+
+<div class="about-grid">
+
+<div class="card">
+
+<h3>👋 HELLO!</h3>
+
+<p>
+สวัสดีค่ะ ฉันชื่อ นภัสสร แก้วพรวน
+หรือชื่อเล่น จีจ้า
+ปัจจุบันกำลังศึกษาอยู่ระดับชั้นมัธยมศึกษาปีที่ 6
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>🎯 MY DREAM</h3>
+
+<p>
+ฉันมีความสนใจด้านสุขศาสตร์อุตสาหกรรม
+และความปลอดภัยในการทำงาน
+เพราะเชื่อว่าความปลอดภัยคือสิ่งสำคัญ
+ที่ช่วยสร้างคุณภาพชีวิตที่ดีให้กับทุกคน
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+<h2 class="section-title">
+EDUCATION 📚
+</h2>
+
+<p class="section-sub">
+เส้นทางการศึกษา
+</p>
+
+
+<div class="education">
+
+<div class="card">
+
+<h3>🏫 HIGH SCHOOL</h3>
+
+<p>
+โรงเรียนบ้านบึงอุตสาหกรรมนุเคราะห์
+</p>
+
+<p>
+มัธยมศึกษาปีที่ 6
+</p>
+
+<p>
+GPA 3.22
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>🎓 FUTURE GOAL</h3>
+
+<p>
+คณะสาธารณสุขศาสตร์
+</p>
+
+<p>
+สาขาวิชาสุขศาสตร์อุตสาหกรรม
+และความปลอดภัย
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PORTFOLIO -->
+
+<section id="portfolio">
+
+<h2 class="section-title">
+MY INTERESTS 🦺
+</h2>
+
+<p class="section-sub">
+สิ่งที่ฉันสนใจและอยากพัฒนาตัวเอง
+</p>
+
+
+<div class="safety">
+
+<h2>
+SAFETY IS NOT AN OPTION.<br>
+IT'S A PRIORITY. ✦
+</h2>
+
+<div class="tags">
+
+<div class="tag">🦺 Occupational Safety</div>
+
+<div class="tag">🧪 Industrial Hygiene</div>
+
+<div class="tag">🏥 Public Health</div>
+
+<div class="tag">⚠️ Risk Management</div>
+
+<div class="tag">🌱 Healthy Workplace</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+<div class="contact-box">
+
+<h2 class="section-title">
+LET'S CONNECT! 🩷
+</h2>
+
+<p>
+NAPATSORN KAEWPRUAN
+</p>
+
+<p>
+Chonburi, Thailand 🇹🇭
+</p>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 NAPATSORN KAEWPRUAN ✦
+
+</footer>
+
+</body>
+</html>
