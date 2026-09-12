@@ -52,11 +52,13 @@
             height: fit-content;
         }
         
+        /* ปรับกรอบรูปโปรไฟล์เป็นอัตราส่วน 16:9 แนวตั้ง (9:16) */
         .profile-frame { 
-            width: 160px; 
-            height: 160px; 
+            width: 100%; 
+            max-width: 220px; 
+            aspect-ratio: 9 / 16; 
             margin: 0 auto 20px auto; 
-            border-radius: 50%; 
+            border-radius: 16px; 
             overflow: hidden; 
             border: 4px solid #FFC107; 
             box-shadow: 0 4px 15px rgba(255,193,7,0.3); 
@@ -128,6 +130,7 @@
         <div class="content-grid">
             <!-- ด้านซ้าย: ข้อมูลส่วนตัว -->
             <div class="info-card">
+                <!-- กรอบรูปทรงสูง 16:9 แนวตั้ง -->
                 <div class="profile-frame">
                     <img src="Napat/Npface.jpg" alt="นภัสสร แก้วพรวน" class="profile-img">
                 </div>
