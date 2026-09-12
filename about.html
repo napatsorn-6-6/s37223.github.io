@@ -3,147 +3,403 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - นภัสสร แก้วพรวน</title>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Portfolio - นภัสสร แก้วพรวน</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Kanit', sans-serif; }
-        body { background-color: #F8F9FA; color: #333; padding: 40px 20px; min-height: 100vh; display: flex; justify-content: center; align-items: center; }
-        
-        .container { max-width: 950px; width: 100%; margin: 0 auto; }
-        
-        .card { background: white; border-radius: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); padding: 40px; border: 2px solid #FFE082; }
-        
-        h1 { color: #37474F; font-size: 2rem; text-align: center; margin-bottom: 30px; border-bottom: 3px solid #FFC107; display: inline-block; padding-bottom: 8px; }
-        .title-container { text-align: center; margin-bottom: 10px; }
-
-        /* เลย์เอาต์แบ่ง 2 คอลัมน์ (ซ้าย-ขวา) */
-        .about-grid { display: grid; grid-template-columns: 320px 1fr; gap: 30px; margin-bottom: 30px; }
-        
-        /* ฝั่งซ้าย: รูปภาพ + ประวัติส่วนตัวด้านล่าง */
-        .left-col { display: flex; flex-direction: column; gap: 20px; }
-        
-        .profile-frame {
-            width: 100%;
-            max-width: 220px;
-            aspect-ratio: 3 / 4;
-            margin: 0 auto;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 3px solid #FFC107;
-            box-shadow: 0 6px 18px rgba(255, 193, 7, 0.25);
-            background-color: #FFFDE7;
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Kanit', sans-serif; 
         }
-        .profile-img { width: 100%; height: 100%; object-fit: cover; display: block; }
         
-        .info-card { background: #FFFDE7; border-radius: 20px; padding: 20px; border: 1px solid #FFE082; }
-        .info-card h2 { color: #F57F17; font-size: 1.15rem; margin-bottom: 15px; border-bottom: 2px solid #FFC107; padding-bottom: 5px; }
-        .info-list { display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem; }
-        .info-item { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 5px; line-height: 1.5; }
-        .info-label { color: #F57F17; font-weight: 600; min-width: 90px; }
-        .info-value { color: #37474F; flex: 1; text-align: right; }
+        body { 
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #7dd3fc 100%);
+            background-attachment: fixed;
+            color: #1e293b; 
+            padding: 40px 20px; 
+            min-height: 100vh; 
+            position: relative;
+        }
 
-        /* ฝั่งขวา: ความถนัดและทักษะ */
-        .right-col { background: #FFFFFF; border-radius: 20px; padding: 25px; border: 1px solid #FFE082; box-shadow: inset 0 0 10px rgba(255,193,7,0.05); }
-        .right-col h2 { color: #263238; font-size: 1.25rem; margin-bottom: 20px; border-left: 4px solid #FFC107; padding-left: 12px; }
+        .container { 
+            max-width: 1050px; 
+            margin: 0 auto; 
+            position: relative;
+            z-index: 1;
+        }
         
-        /* Skill Bars */
-        .skill-item { margin-bottom: 18px; }
-        .skill-name { font-size: 0.95rem; color: #37474F; font-weight: 600; margin-bottom: 6px; display: flex; justify-content: space-between; }
-        .skill-bar { width: 100%; height: 10px; background-color: #ECEFF1; border-radius: 10px; overflow: hidden; border: 1px solid #CFD8DC; }
-        .skill-fill { height: 100%; background: #FFC107; border-radius: 10px; }
+        /* Header */
+        .header { 
+            background: rgba(255, 255, 255, 0.92); 
+            backdrop-filter: blur(10px);
+            padding: 20px 25px; 
+            border-radius: 20px; 
+            border: 1px solid #bae6fd; 
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.12); 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 35px; 
+            gap: 15px;
+        }
+        
+        h1 { 
+            color: #0284c7; 
+            font-size: 1.6rem; 
+            font-weight: 700;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .btn-nav { 
+            padding: 10px 22px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            transition: all 0.3s ease; 
+            white-space: nowrap;
+        }
+        .btn-back { 
+            background: #f0f9ff; 
+            color: #0284c7; 
+            border: 1.5px solid #0284c7;
+        }
+        .btn-back:hover { 
+            background: #bae6fd; 
+            transform: translateY(-2px);
+        }
+        .btn-next { 
+            background: #0284c7; 
+            color: #ffffff; 
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3); 
+        }
+        .btn-next:hover { 
+            background: #0369a1; 
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 16px rgba(2, 132, 199, 0.4);
+        }
+        
+        .section-title { 
+            color: #0369a1; 
+            font-size: 1.45rem; 
+            font-weight: 700;
+            margin: 20px 0 25px 0; 
+            padding-bottom: 8px; 
+            border-bottom: 3px solid #38bdf8; 
+            display: inline-block; 
+        }
 
-        /* Skill Tags ด้านล่าง */
-        .tags-title { color: #546E7A; font-size: 1rem; font-weight: 600; margin: 25px 0 12px 0; }
-        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; }
-        .skill-tag { background: #FFF8E1; border: 1px solid #FFE082; color: #F57F17; padding: 8px 14px; border-radius: 20px; font-size: 0.88rem; font-weight: 500; }
+        .highlight-box {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid #bae6fd;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.08);
+        }
 
-        /* ปุ่มนำทางด้านล่าง */
-        .btn-group { display: flex; justify-content: space-between; gap: 15px; margin-top: 10px; }
-        .btn { flex: 1; padding: 12px 20px; font-size: 1rem; font-weight: 600; border-radius: 50px; text-decoration: none; transition: all 0.3s ease; text-align: center; }
-        .btn-secondary { color: #546E7A; background-color: #ECEFF1; border: 1px solid #CFD8DC; }
-        .btn-secondary:hover { background-color: #CFD8DC; }
-        .btn-primary { color: #212121; background-color: #FFC107; box-shadow: 0 4px 12px rgba(255,193,7,0.3); }
-        .btn-primary:hover { background-color: #FFB300; transform: translateY(-2px); }
+        .skill-group {
+            margin-bottom: 30px;
+        }
 
-        /* รองรับมือถือและหน้าจอขนาดเล็ก */
+        .skill-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .skill-header h3 {
+            color: #0284c7;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .skill-desc {
+            color: #475569;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; 
+            margin-bottom: 35px; 
+        }
+
+        .card { 
+            background: #ffffff; 
+            border-radius: 16px; 
+            border: 1px solid #bae6fd; 
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.08); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+            cursor: pointer; 
+        }
+        .card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 12px 25px rgba(14, 165, 233, 0.22); 
+        }
+        .card-img { 
+            width: 100%; 
+            height: 200px; 
+            object-fit: cover; 
+            background-color: #f0f9ff; 
+        }
+        .card-body { 
+            padding: 18px 20px; 
+        }
+        .card-body h3 { 
+            color: #0284c7; 
+            font-size: 1.05rem; 
+            font-weight: 600;
+            margin-bottom: 8px; 
+            line-height: 1.4; 
+        }
+        .card-body p { 
+            color: #475569; 
+            font-size: 0.88rem; 
+            line-height: 1.6; 
+        }
+        
+        /* Modal Popup */
+        .modal { 
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(15, 23, 42, 0.85); 
+            backdrop-filter: blur(5px);
+            justify-content: center; 
+            align-items: center; 
+        }
+        .modal-content { 
+            max-width: 90%; 
+            max-height: 90%; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
         @media (max-width: 768px) {
-            .about-grid { grid-template-columns: 1fr; }
-            .info-value { text-align: left; }
-            .card { padding: 25px 20px; }
+            .header { flex-direction: column; text-align: center; }
+            h1 { order: 1; }
+            .btn-back { order: 2; width: 100%; text-align: center; }
+            .btn-next { order: 3; width: 100%; text-align: center; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="card">
-            <div class="title-container">
-                <h1>ABOUT ME (แนะนำตัวเอง)</h1>
+        <!-- Header -->
+        <div class="header">
+            <a href="about.html" class="btn-nav btn-back">← ประวัติส่วนตัว</a>
+            <h1>🏆 แฟ้มสะสมผลงานและเกียรติบัตร</h1>
+            <a href="thankyou.html" class="btn-nav btn-next">ไปยังหน้าปิดท้าย →</a>
+        </div>
+
+        <!-- ส่วนที่ 1: เกียรติบัตร -->
+        <h2 class="section-title">เกียรติบัตรและการฝึกอบรมพัฒนาตนเอง</h2>
+        
+        <div class="grid">
+            <!-- Np4.jpg -->
+            <div class="card" onclick="openModal('Napat/Np4.jpg')">
+                <img src="Napat/Np4.jpg" alt="รูปเกียรติบัตร 1" class="card-img">
+                <div class="card-body">
+                    <h3><!-- หัวข้อเกียรติบัตร 1 --></h3>
+                    <p><!-- คำอธิบายเกียรติบัตร 1 --></p>
+                </div>
             </div>
 
-            <div class="about-grid">
-                <!-- ฝั่งซ้าย: รูปภาพ + ประวัติส่วนตัวด้านล่าง -->
-                <div class="left-col">
-                    <div class="profile-frame">
-                        <img src="Npface.jpg" alt="นภัสสร แก้วพรวน" class="profile-img">
-                    </div>
+            <!-- Np3.jpg -->
+            <div class="card" onclick="openModal('Napat/Np3.jpg')">
+                <img src="Napat/Np3.jpg" alt="รูปเกียรติบัตร 2" class="card-img">
+                <div class="card-body">
+                    <h3><!-- หัวข้อเกียรติบัตร 2 --></h3>
+                    <p><!-- คำอธิบายเกียรติบัตร 2 --></p>
+                </div>
+            </div>
 
-                    <div class="info-card">
-                        <h2>👤 ประวัติส่วนตัว</h2>
-                        <div class="info-list">
-                            <div class="info-item"><span class="info-label">ชื่อ-สกุล:</span><span class="info-value">น.ส. นภัสสร แก้วพรวน</span></div>
-                            <div class="info-item"><span class="info-label">ชื่อเล่น:</span><span class="info-value">จีจ้า</span></div>
-                            <div class="info-item"><span class="info-label">อายุ:</span><span class="info-value">18 ปี</span></div>
-                            <div class="info-item"><span class="info-label">วันเกิด:</span><span class="info-value">11 กุมภาพันธ์ 2551</span></div>
-                            <div class="info-item"><span class="info-label">สัญชาติ/ศาสนา:</span><span class="info-value">ไทย / พุทธ</span></div>
-                            <div class="info-item"><span class="info-label">สถานศึกษา:</span><span class="info-value">รร.บ้านบึง "อุตสาหกรรมนุเคราะห์"</span></div>
-                            <div class="info-item"><span class="info-label">เป้าหมาย:</span><span class="info-value">คณะสาธารณสุขศาสตร์ ม.บูรพา</span></div>
-                            <div class="info-item"><span class="info-label">เบอร์โทรศัพท์:</span><span class="info-value">067-637-8920</span></div>
+            <!-- Np2.jpg -->
+            <div class="card" onclick="openModal('Napat/Np2.jpg')">
+                <img src="Napat/Np2.jpg" alt="รูปเกียรติบัตร 3" class="card-img">
+                <div class="card-body">
+                    <h3><!-- หัวข้อเกียรติบัตร 3 --></h3>
+                    <p><!-- คำอธิบายเกียรติบัตร 3 --></p>
+                </div>
+            </div>
+
+            <!-- Np6.jpg -->
+            <div class="card" onclick="openModal('Napat/Np6.jpg')">
+                <img src="Napat/Np6.jpg" alt="รูปเกียรติบัตร 4" class="card-img">
+                <div class="card-body">
+                    <h3><!-- หัวข้อเกียรติบัตร 4 --></h3>
+                    <p><!-- คำอธิบายเกียรติบัตร 4 --></p>
+                </div>
+            </div>
+
+            <!-- Np1.jpg -->
+            <div class="card" onclick="openModal('Napat/Np1.jpg')">
+                <img src="Napat/Np1.jpg" alt="รูปเกียรติบัตร 5" class="card-img">
+                <div class="card-body">
+                    <h3><!-- หัวข้อเกียรติบัตร 5 --></h3>
+                    <p><!-- คำอธิบายเกียรติบัตร 5 --></p>
+                </div>
+            </div>
+
+            <!-- Np5.jpg -->
+            <div class="card" onclick="openModal('Napat/Np5.jpg')">
+                <img src="Napat/Np5.jpg" alt="รูปเกียรติบัตร 6" class="card-img">
+                <div class="card-body">
+                    <h3><!-- หัวข้อเกียรติบัตร 6 --></h3>
+                    <p><!-- คำอธิบายเกียรติบัตร 6 --></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ส่วนที่ 2: จุดเด่นและทักษะเพิ่มเติม -->
+        <h2 class="section-title">🌟 จุดเด่นและประสบการณ์การเรียนรู้เพิ่มเติม</h2>
+
+        <div class="highlight-box">
+            
+            <!-- 1. จิตอาสา (3 รูป) -->
+            <div class="skill-group">
+                <div class="skill-header">
+                    <h3>1. จิตอาสา</h3>
+                </div>
+                <p class="skill-desc"><!-- ข้อความเกริ่นนำจิตอาสา --></p>
+                <div class="grid">
+                    <div class="card" onclick="openModal('Napat/volunteer-1.jpg')">
+                        <img src="Napat/volunteer-1.jpg" alt="จิตอาสา 1" class="card-img">
+                        <div class="card-body">
+                            <h3><!-- ชื่อกิจกรรมจิตอาสา 1 --></h3>
+                            <p><!-- รายละเอียดจิตอาสา 1 --></p>
+                        </div>
+                    </div>
+                    <div class="card" onclick="openModal('Napat/volunteer-2.jpg')">
+                        <img src="Napat/volunteer-2.jpg" alt="จิตอาสา 2" class="card-img">
+                        <div class="card-body">
+                            <h3><!-- ชื่อกิจกรรมจิตอาสา 2 --></h3>
+                            <p><!-- รายละเอียดจิตอาสา 2 --></p>
+                        </div>
+                    </div>
+                    <div class="card" onclick="openModal('Napat/volunteer-3.jpg')">
+                        <img src="Napat/volunteer-3.jpg" alt="จิตอาสา 3" class="card-img">
+                        <div class="card-body">
+                            <h3><!-- ชื่อกิจกรรมจิตอาสา 3 --></h3>
+                            <p><!-- รายละเอียดจิตอาสา 3 --></p>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- ฝั่งขวา: ความถนัดและทักษะพิเศษ -->
-                <div class="right-col">
-                    <h2>⭐ ความถนัดและทักษะพิเศษ (Skills & Strengths)</h2>
-
-                    <div class="skill-item">
-                        <div class="skill-name"><span>งานบริการสาธารณสุขและจิตสาธารณะ</span><span>92%</span></div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 92%;"></div></div>
+            <!-- 2. การเข้าร่วมกิจกรรม (4 รูป) -->
+            <div class="skill-group">
+                <div class="skill-header">
+                    <h3>2. การเข้าร่วมกิจกรรม</h3>
+                </div>
+                <p class="skill-desc"><!-- ข้อความเกริ่นนำการเข้าร่วมกิจกรรม --></p>
+                <div class="grid">
+                    <div class="card" onclick="openModal('Napat/activity-1.jpg')">
+                        <img src="Napat/activity-1.jpg" alt="กิจกรรม 1" class="card-img">
+                        <div class="card-body">
+                            <h3><!-- ชื่อกิจกรรม 1 --></h3>
+                            <p><!-- รายละเอียดกิจกรรม 1 --></p>
+                        </div>
                     </div>
-
-                    <div class="skill-item">
-                        <div class="skill-name"><span>การลงทะเบียนและบริหารจัดการประสานงาน</span><span>90%</span></div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+                    <div class="card" onclick="openModal('Napat/activity-2.jpg')">
+                        <img src="Napat/activity-2.jpg" alt="กิจกรรม 2" class="card-img">
+                        <div class="card-body">
+                            <h3><!-- ชื่อกิจกรรม 2 --></h3>
+                            <p><!-- รายละเอียดกิจกรรม 2 --></p>
+                        </div>
                     </div>
-
-                    <div class="skill-item">
-                        <div class="skill-name"><span>การสื่อสารและการทำงานร่วมกับผู้อื่น</span><span>88%</span></div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 88%;"></div></div>
+                    <div class="card" onclick="openModal('Napat/activity-3.jpg')">
+                        <img src="Napat/activity-3.jpg" alt="กิจกรรม 3" class="card-img">
+                        <div class="card-body">
+                            <h3><!-- ชื่อกิจกรรม 3 --></h3>
+                            <p><!-- รายละเอียดกิจกรรม 3 --></p>
+                        </div>
                     </div>
-
-                    <div class="skill-item">
-                        <div class="skill-name"><span>ทักษะเทคโนโลยีดิจิทัล (Smart Digital Life)</span><span>85%</span></div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
-                    </div>
-
-                    <div class="tags-title">📌 จุดเด่นและทักษะเพิ่มเติม:</div>
-                    <div class="skills-container">
-                        <span class="skill-tag">🏥 การลงทะเบียนและประสานงาน</span>
-                        <span class="skill-tag">💻 เทคโนโลยีสารสนเทศดิจิทัล</span>
-                        <span class="skill-tag">🤝 งานบริการสังคมและค่ายคุณธรรม</span>
-                        <span class="skill-tag">👥 ทักษะการสื่อสารระหว่างบุคคล</span>
+                    <div class="card" onclick="openModal('Napat/activity-4.jpg')">
+                        <img src="Napat/activity-4.jpg" alt="กิจกรรม 4" class="card-img">
+                        <div class="card-body">
+                            <h3><!-- ชื่อกิจกรรม 4 --></h3>
+                            <p><!-- รายละเอียดกิจกรรม 4 --></p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ปุ่มย้อนกลับ / ถัดไป -->
-            <div class="btn-group">
-                <a href="intro.html" class="btn btn-secondary">← คำนำ</a>
-                <a href="portfolio.html" class="btn btn-primary">ดูผลงานเกียรติบัตร →</a>
+            <!-- 3. งานพาร์ตไทม์ (2 รูป) -->
+            <div class="skill-group">
+                <div class="skill-header">
+                    <h3>3. งานพาร์ตไทม์</h3>
+                </div>
+                <p class="skill-desc"><!-- ข้อความเกริ่นนำงานพาร์ตไทม์ --></p>
+                <div class="grid">
+                    <div class="card" onclick="openModal('Napat/parttime-1.jpg')">
+                        <img src="Napat/parttime-1.jpg" alt="งานพาร์ตไทม์ 1" class="card-img">
+                        <div class="card-body">
+                            <h3><!-- ชื่องานพาร์ตไทม์ 1 --></h3>
+                            <p><!-- รายละเอียดงานพาร์ตไทม์ 1 --></p>
+                        </div>
+                    </div>
+                    <div class="card" onclick="openModal('Napat/parttime-2.jpg')">
+                        <img src="Napat/parttime-2.jpg" alt="งานพาร์ตไทม์ 2" class="card-img">
+                        <div class="card-body">
+                            <h3><!-- ชื่องานพาร์ตไทม์ 2 --></h3>
+                            <p><!-- รายละเอียดงานพาร์ตไทม์ 2 --></p>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- 4. การทำงานเป็นทีมและการประสานงาน (1 รูป) -->
+            <div class="skill-group">
+                <div class="skill-header">
+                    <h3>4. การทำงานเป็นทีมและการประสานงาน</h3>
+                </div>
+                <p class="skill-desc"><!-- ข้อความเกริ่นนำการทำงานเป็นทีม --></p>
+                <div class="grid">
+                    <div class="card" onclick="openModal('Napat/teamwork-1.jpg')">
+                        <img src="Napat/teamwork-1.jpg" alt="การทำงานเป็นทีม 1" class="card-img">
+                        <div class="card-body">
+                            <h3><!-- ชื่องาน/กิจกรรมการทำงานเป็นทีม --></h3>
+                            <p><!-- รายละเอียดการทำงานเป็นทีม --></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
+    <!-- Modal Popup สำหรับดูรูปขนาดใหญ่ -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <img id="modalImg" class="modal-content" src="" alt="Enlarged Image">
+    </div>
+
+    <script>
+        function openModal(imgSrc) {
+            document.getElementById('imageModal').style.display = 'flex';
+            document.getElementById('modalImg').src = imgSrc;
+        }
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
