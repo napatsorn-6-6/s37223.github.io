@@ -3,48 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You - นภัสสร แก้วพรวน</title>
+    <title>Portfolio - นภัสสร แก้วพรวน</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Kanit', sans-serif; }
-        body { background-color: #F8F9FA; color: #333; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 40px 20px; }
-        .card { background: white; border-radius: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); max-width: 650px; width: 100%; padding: 40px; border: 2px solid #FFE082; text-align: center; }
-        .my-photo-frame { width: 100%; max-width: 440px; aspect-ratio: 16 / 9; margin: 0 auto 25px auto; border-radius: 16px; overflow: hidden; border: 2px solid #FFC107; box-shadow: 0 4px 15px rgba(255,193,7,0.25); background-color: #FFFDE7; }
-        .my-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
-        h1 { color: #37474F; font-size: 2.3rem; margin-bottom: 15px; }
-        .thank-text { font-size: 1.05rem; line-height: 1.8; color: #455A64; margin-bottom: 30px; }
-        .university-section { background: #FFFDE7; border: 1px solid #FFE082; border-radius: 15px; padding: 20px; margin-bottom: 30px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-        .uni-logo { max-width: 90px; max-height: 90px; object-fit: contain; }
-        .uni-name { font-size: 1.2rem; font-weight: 600; color: #D81B60; }
-        .faculty-name { font-size: 1rem; color: #37474F; font-weight: 400; }
-        .btn-group { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .btn { padding: 12px 28px; font-size: 1rem; font-weight: 600; border-radius: 50px; text-decoration: none; transition: all 0.3s ease; color: #546E7A; background-color: #ECEFF1; border: 1px solid #CFD8DC; }
-        .btn:hover { color: #212121; background-color: #FFC107; box-shadow: 0 4px 12px rgba(255,193,7,0.3); transform: translateY(-2px); }
+        body { background-color: #F8F9FA; color: #333; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
+        .cover-card { background: white; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); max-width: 550px; width: 100%; padding: 40px; border: 3px solid #FFC107; text-align: center; }
+        .uni-tag { background: #FFF8E1; color: #D81B60; font-weight: 600; padding: 8px 18px; border-radius: 20px; display: inline-block; margin-bottom: 20px; border: 1px solid #FFE082; font-size: 0.95rem; }
+        
+        /* ปรับกรอบรูปทรง 9:16 แนวตั้ง */
+        .profile-frame { 
+            width: 100%; 
+            max-width: 220px; 
+            aspect-ratio: 9 / 16; 
+            margin: 0 auto 20px auto; 
+            border-radius: 16px; 
+            overflow: hidden; 
+            border: 4px solid #FFC107; 
+            box-shadow: 0 5px 15px rgba(255,193,7,0.3); 
+        }
+        .profile-img { width: 100%; height: 100%; object-fit: cover; }
+        
+        h1 { color: #37474F; font-size: 2.2rem; margin-bottom: 5px; }
+        .nickname { color: #FF8F00; font-size: 1.2rem; font-weight: 600; margin-bottom: 20px; }
+        .target-box { background: #ECEFF1; border-left: 5px solid #FFC107; padding: 15px; border-radius: 8px; text-align: left; margin-bottom: 30px; }
+        .target-box p { margin-bottom: 5px; color: #455A64; font-size: 0.95rem; }
+        .target-box strong { color: #263238; }
+        .btn-start { display: inline-block; width: 100%; background: #FFC107; color: #212121; font-weight: 600; font-size: 1.1rem; padding: 14px; border-radius: 50px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(255,193,7,0.4); }
+        .btn-start:hover { background: #FFB300; transform: translateY(-2px); }
     </style>
 </head>
 <body>
-    <div class="card">
-        <div class="my-photo-frame">
-            <img src="Npface.jpg" alt="นภัสสร แก้วพรวน" class="my-photo">
+    <div class="cover-card">
+        <div class="uni-tag">🎓 Portfolio TCAS1 - มหาวิทยาลัยบูรพา</div>
+        <div class="profile-frame">
+            <img src="Napat/Npface.jpg" alt="นภัสสร แก้วพรวน" class="profile-img">
         </div>
-
-        <h1>THANK YOU</h1>
-        
-        <p class="thank-text">
-            ขอขอบพระคุณท่านคณะกรรมการเป็นอย่างสูงที่ได้เสียสละเวลาอันมีค่าในการรับชมและพิจารณาแฟ้มสะสมผลงานฉบับนี้<br>
-            ข้าพเจ้าหวังเป็นอย่างยิ่งว่าจะได้รับโอกาสเข้าศึกษาต่อในคณะสาธารณสุขศาสตร์ มหาวิทยาลัยบูรพา เพื่อมุ่งมั่นเรียนรู้และนำความรู้มาพัฒนาสังคมต่อไปค่ะ
-        </p>
-
-        <div class="university-section">
-            <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Logo_of_Burapha_University.svg/1280px-Logo_of_Burapha_University.svg.png?utm_source=th.wikipedia.org&utm_campaign=index&utm_content=thumbnail" alt="Burapha University Logo" class="uni-logo">
-            <div class="uni-name">มหาวิทยาลัยบูรพา</div>
-            <div class="faculty-name">คณะสาธารณสุขศาสตร์</div>
+        <h1>นภัสสร แก้วพรวน</h1>
+        <div class="nickname">( จีจ้า )</div>
+        <div class="target-box">
+            <p><strong>คณะ:</strong> สาธารณสุขศาสตร์</p>
+            <p><strong>มหาวิทยาลัย:</strong> มหาวิทยาลัยบูรพา</p>
+            <p><strong>โรงเรียน:</strong> บ้านบึง "อุตสาหกรรมนุเคราะห์"</p>
         </div>
-
-        <div class="btn-group">
-            <a href="portfolio.html" class="btn">← ย้อนกลับไปหน้าผลงาน</a>
-            <a href="index.html" class="btn">กลับหน้าแรก 🏠</a>
-        </div>
+        <a href="intro.html" class="btn-start">เปิดอ่านแฟ้มสะสมผลงาน →</a>
     </div>
 </body>
 </html>
