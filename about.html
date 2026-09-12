@@ -1,299 +1,210 @@
 <!DOCTYPE html>
-
 <html lang="th">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Portfolio - นภัสสร แก้วพรวน</title>
-
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
-
     <style>
-
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Kanit', sans-serif; }
-
         body { background-color: #FFFDE7; color: #333; padding: 40px 20px; min-height: 100vh; }
-
         .container { max-width: 1000px; margin: 0 auto; }
-
         
-
-        /* ปรับ Header เรียงลำดับ: ปุ่มย้อนกลับ - หัวข้อ - ปุ่มถัดไป */
-
+        /* Header */
         .header { 
-
             background: white; 
-
             padding: 20px 25px; 
-
             border-radius: 20px; 
-
             border: 2px solid #FFE082; 
-
             box-shadow: 0 4px 15px rgba(255,193,7,0.15); 
-
             display: flex; 
-
             justify-content: space-between; 
-
             align-items: center; 
-
             margin-bottom: 35px; 
-
             gap: 15px;
-
         }
-
         
-
         h1 { 
-
             color: #37474F; 
-
             font-size: 1.6rem; 
-
             text-align: center;
-
             flex: 1;
-
         }
-
         
-
         .btn-nav { 
-
             padding: 10px 20px; 
-
             border-radius: 50px; 
-
             text-decoration: none; 
-
             font-weight: 600; 
-
             font-size: 0.95rem; 
-
             transition: all 0.3s ease; 
-
             white-space: nowrap;
-
         }
-
         .btn-back { background: #ECEFF1; color: #455A64; }
-
         .btn-back:hover { background: #CFD8DC; }
-
         .btn-next { background: #FFC107; color: #212121; box-shadow: 0 4px 12px rgba(255,193,7,0.3); }
-
         .btn-next:hover { background: #FFB300; transform: translateY(-2px); }
-
         
-
-        .section-title { color: #263238; font-size: 1.4rem; margin: 10px 0 25px 0; padding-bottom: 8px; border-bottom: 3px solid #FFC107; display: inline-block; }
-
+        .section-title { color: #263238; font-size: 1.4rem; margin: 20px 0 25px 0; padding-bottom: 8px; border-bottom: 3px solid #FFC107; display: inline-block; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 35px; }
-
         .card { background: white; border-radius: 15px; border: 1px solid #FFE082; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
-
         .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(255,193,7,0.25); }
-
         .card-img { width: 100%; height: 200px; object-fit: cover; background-color: #FFFDE7; }
-
         .card-body { padding: 18px 20px; }
-
         .card-body h3 { color: #F57F17; font-size: 1.05rem; margin-bottom: 8px; line-height: 1.4; }
-
         .card-body p { color: #555; font-size: 0.88rem; line-height: 1.6; }
-
         
+        /* สไตล์สำหรับส่วนความสามารถพิเศษ */
+        .skills-container { display: flex; flex-direction: column; gap: 30px; margin-bottom: 35px; }
+        .skill-block { background: white; border-radius: 15px; border: 1px solid #FFE082; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .skill-block h3 { color: #F57F17; font-size: 1.15rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .skill-block p { color: #555; font-size: 0.9rem; line-height: 1.6; margin-bottom: 15px; }
+        .image-gallery { display: grid; gap: 15px; }
+        .gallery-3 { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+        .gallery-1 { grid-template-columns: 1fr; max-width: 500px; }
+        .gallery-img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; border: 1px solid #FFE082; transition: transform 0.3s ease; cursor: pointer; }
+        .gallery-img:hover { transform: scale(1.03); }
 
         .modal { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); justify-content: center; align-items: center; }
-
         .modal-content { max-width: 90%; max-height: 90%; border-radius: 10px; }
 
-
-
         @media (max-width: 768px) {
-
             .header { flex-direction: column; text-align: center; }
-
             h1 { order: 1; }
-
             .btn-back { order: 2; width: 100%; text-align: center; }
-
             .btn-next { order: 3; width: 100%; text-align: center; }
-
         }
-
     </style>
-
 </head>
-
 <body>
 
-
-
     <div class="container">
-
-        <!-- Header รูปแบบใหม่: ปุ่มย้อนกลับ - หัวข้อ - ปุ่มถัดไป -->
-
+        <!-- Header รูปแบบเดิม -->
         <div class="header">
-
             <a href="about.html" class="btn-nav btn-back">← ประวัติส่วนตัว</a>
-
             <h1>🏆 แฟ้มสะสมผลงานและเกียรติบัตร</h1>
-
             <a href="thankyou.html" class="btn-nav btn-next">ไปยังหน้าปิดท้าย →</a>
-
         </div>
-
-
 
         <h2 class="section-title">ผลงาน กิจกรรม และการฝึกอบรมพัฒนาตนเอง</h2>
-
         
-
         <div class="grid">
-
             <!-- Np4.jpg -->
-
-            <div class="card" onclick="openModal('Np4.jpg')">
-
-                <img src="Np4.jpg" alt="งานศิลปหัตถกรรมนักเรียน ครั้งที่ 73" class="card-img">
-
+            <div class="card" onclick="openModal('Napat/Np4.jpg')">
+                <img src="Napat/Np4.jpg" alt="งานศิลปหัตถกรรมนักเรียน ครั้งที่ 73" class="card-img">
                 <div class="card-body">
-
                     <h3>1. กรรมการฝ่ายลงทะเบียน งานศิลปหัตถกรรมนักเรียน ครั้งที่ 73</h3>
-
                     <p>ปฏิบัติหน้าที่คณะกรรมการฝ่ายลงทะเบียน ระดับสำนักงานเขตพื้นที่การศึกษามัธยมศึกษาชลบุรี ระยอง ฝึกทักษะการบริหารจัดการข้อมูล สรุปยอด และการบริการประสานงาน</p>
-
                 </div>
-
             </div>
-
-
 
             <!-- Np3.jpg -->
-
-            <div class="card" onclick="openModal('Np3.jpg')">
-
-                <img src="Np3.jpg" alt="Smart and Safe Digital Life" class="card-img">
-
+            <div class="card" onclick="openModal('Napat/Np3.jpg')">
+                <img src="Napat/Np3.jpg" alt="Smart and Safe Digital Life" class="card-img">
                 <div class="card-body">
-
                     <h3>2. กิจกรรม SMART AND SAFE DIGITAL LIFE (ปีการศึกษา 2569)</h3>
-
                     <p>เข้าร่วมการเรียนรู้และนิทรรศการด้านเทคโนโลยี ในงานสัปดาห์วิทยาศาสตร์แห่งชาติ เพื่อนำนวัตกรรมดิจิทัลมาประยุกต์ใช้ในการดำเนินชีวิตอย่างปลอดภัย</p>
-
                 </div>
-
             </div>
-
-
 
             <!-- Np2.jpg -->
-
-            <div class="card" onclick="openModal('Np2.jpg')">
-
-                <img src="Np2.jpg" alt="ค่ายยกระดับผลสัมฤทธิ์เทคโนโลยี" class="card-img">
-
+            <div class="card" onclick="openModal('Napat/Np2.jpg')">
+                <img src="Napat/Np2.jpg" alt="ค่ายยกระดับผลสัมฤทธิ์เทคโนโลยี" class="card-img">
                 <div class="card-body">
-
                     <h3>3. ค่ายยกระดับผลสัมฤทธิ์ทางการเรียนเทคโนโลยี</h3>
-
                     <p>ผ่านการฝึกอบรมเชิงปฏิบัติการเพื่อพัฒนาทักษะด้านเทคโนโลยีสารสนเทศ เสริมสร้างกระบวนการคิดวิเคราะห์อย่างเป็นระบบ ณ หอประชุมกาญจนานนท์</p>
-
                 </div>
-
             </div>
-
-
 
             <!-- Np6.jpg -->
-
-            <div class="card" onclick="openModal('Np6.jpg')">
-
-                <img src="Np6.jpg" alt="สัมมนาพัฒนาเทคโนโลยี" class="card-img">
-
+            <div class="card" onclick="openModal('Napat/Np6.jpg')">
+                <img src="Napat/Np6.jpg" alt="สัมมนาพัฒนาเทคโนโลยี" class="card-img">
                 <div class="card-body">
-
                     <h3>4. สัมมนาการพัฒนาเทคโนโลยี (Technology Development)</h3>
-
                     <p>เข้าร่วมสัมมนาวิชาการด้านเทคโนโลยี ณ ห้อง Fabrication Laboratory เพื่อเปิดโลกทัศน์เกี่ยวกับการใช้นวัตกรรมในการพัฒนาสังคม</p>
-
                 </div>
-
             </div>
-
-
 
             <!-- Np1.jpg -->
-
-            <div class="card" onclick="openModal('Np1.jpg')">
-
-                <img src="Np1.jpg" alt="ค่ายพัฒนาคุณธรรม จริยธรรม 2567" class="card-img">
-
+            <div class="card" onclick="openModal('Napat/Np1.jpg')">
+                <img src="Napat/Np1.jpg" alt="ค่ายพัฒนาคุณธรรม จริยธรรม 2567" class="card-img">
                 <div class="card-body">
-
                     <h3>5. ค่ายพัฒนาคุณธรรม จริยธรรมนักเรียน (ปีการศึกษา 2567)</h3>
-
                     <p>เข้าร่วมการอบรมเชิงปฏิบัติการเพื่อส่งเสริมคุณธรรม จริยธรรม และจิตสาธารณะ พร้อมนำหลักธรรมมาปรับใช้ในการช่วยเหลือผู้อื่นในสังคม</p>
-
                 </div>
-
             </div>
-
-
 
             <!-- Np5.jpg -->
-
-            <div class="card" onclick="openModal('Np5.jpg')">
-
-                <img src="Np5.jpg" alt="ค่ายพัฒนาคุณธรรม จริยธรรม 2568" class="card-img">
-
+            <div class="card" onclick="openModal('Napat/Np5.jpg')">
+                <img src="Napat/Np5.jpg" alt="ค่ายพัฒนาคุณธรรม จริยธรรม 2568" class="card-img">
                 <div class="card-body">
-
                     <h3>6. ค่ายพัฒนาคุณธรรม จริยธรรมนักเรียน (ปีการศึกษา 2568)</h3>
-
                     <p>เข้าร่วมกิจกรรมพัฒนาจิตใจและสร้างวินัยอย่างต่อเนื่อง ส่งเสริมการทำงานร่วมกัน ความเสียสละ และความรับผิดชอบต่อส่วนรวม</p>
-
                 </div>
-
             </div>
-
         </div>
 
-        <!-- ลบปุ่มไปหน้าถัดไปด้านล่างออกเรียบร้อยแล้ว -->
+        <!-- ส่วนความสามารถพิเศษและประสบการณ์ -->
+        <h2 class="section-title">ความสามารถพิเศษและประสบการณ์</h2>
+        
+        <div class="skills-container">
+            <!-- ข้อ 1: งานพาร์ทไทม์ (3 รูป) -->
+            <div class="skill-block">
+                <h3>💼 1. งานพาร์ทไทม์ (Part-time Job)</h3>
+                <p>ฝึกฝนทักษะการทำงานจริง ความรับผิดชอบ ตรงต่อเวลา และการแก้ปัญหาเฉพาะหน้าในการทำงานบริการและการจัดการงานเอกสาร</p>
+                <div class="image-gallery gallery-3">
+                    <img src="Napat/parttime1.jpg" alt="งานพาร์ทไทม์ 1" class="gallery-img" onclick="openModal('Napat/parttime1.jpg')">
+                    <img src="Napat/parttime2.jpg" alt="งานพาร์ทไทม์ 2" class="gallery-img" onclick="openModal('Napat/parttime2.jpg')">
+                    <img src="Napat/parttime3.jpg" alt="งานพาร์ทไทม์ 3" class="gallery-img" onclick="openModal('Napat/parttime3.jpg')">
+                </div>
+            </div>
+
+            <!-- ข้อ 2: จิตอาสา (3 รูป) -->
+            <div class="skill-block">
+                <h3>🤝 2. งานจิตอาสา (Volunteer Work)</h3>
+                <p>มีจิตสาธารณะ พร้อมช่วยเหลือผู้อื่นและเข้าร่วมกิจกรรมเพื่อประโยชน์ส่วนรวมของชุมชนและโรงเรียนอย่างสม่ำเสมอ</p>
+                <div class="image-gallery gallery-3">
+                    <img src="Napat/volunteer1.jpg" alt="จิตอาสา 1" class="gallery-img" onclick="openModal('Napat/volunteer1.jpg')">
+                    <img src="Napat/volunteer2.jpg" alt="จิตอาสา 2" class="gallery-img" onclick="openModal('Napat/volunteer2.jpg')">
+                    <img src="Napat/volunteer3.jpg" alt="จิตอาสา 3" class="gallery-img" onclick="openModal('Napat/volunteer3.jpg')">
+                </div>
+            </div>
+
+            <!-- ข้อ 3: การทำงานเป็นทีม (1 รูป) -->
+            <div class="skill-block">
+                <h3>👥 3. การทำงานเป็นทีม (Teamwork)</h3>
+                <p>สามารถปรับตัว ทำงานร่วมกับผู้อื่นได้ดี มีทักษะการสื่อสาร รับฟังความคิดเห็นของเพื่อนร่วมงาน และร่วมมือกันเพื่อให้งานบรรลุเป้าหมาย</p>
+                <div class="image-gallery gallery-1">
+                    <img src="Napat/teamwork1.jpg" alt="การทำงานเป็นทีม" class="gallery-img" onclick="openModal('Napat/teamwork1.jpg')">
+                </div>
+            </div>
+
+            <!-- ข้อ 4: การเข้าร่วมกิจกรรม (3 รูป) -->
+            <div class="skill-block">
+                <h3>🎉 4. การเข้าร่วมกิจกรรม (Activity Participation)</h3>
+                <p>มีความกระตือรือร้นในการเข้าร่วมกิจกรรมต่าง ๆ ทั้งด้านวิชาการ นันทนาการ และกิจกรรมพัฒนาผู้เรียนเพื่อเพิ่มพูนประสบการณ์ชีวิต</p>
+                <div class="image-gallery gallery-3">
+                    <img src="Napat/activity1.jpg" alt="กิจกรรม 1" class="gallery-img" onclick="openModal('Napat/activity1.jpg')">
+                    <img src="Napat/activity2.jpg" alt="กิจกรรม 2" class="gallery-img" onclick="openModal('Napat/activity2.jpg')">
+                    <img src="Napat/activity3.jpg" alt="กิจกรรม 3" class="gallery-img" onclick="openModal('Napat/activity3.jpg')">
+                </div>
+            </div>
+        </div>
 
     </div>
-
-
 
     <div id="imageModal" class="modal" onclick="closeModal()">
-
-        <img id="modalImg" class="modal-content" src="" alt="Enlarged Certificate">
-
+        <img id="modalImg" class="modal-content" src="" alt="Enlarged Image">
     </div>
 
-
-
     <script>
-
         function openModal(imgSrc) {
-
             document.getElementById('imageModal').style.display = 'flex';
-
             document.getElementById('modalImg').src = imgSrc;
-
         }
-
         function closeModal() {
-
             document.getElementById('imageModal').style.display = 'none';
-
         }
-
     </script>
+</body>
+</html>
